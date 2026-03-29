@@ -7,6 +7,9 @@
 <p align=center> If you find this project useful, please give it a ⭐ to show your support.</p>
 
 <p align=center>
+  <a href="https://powerai-astro.teamosishq.workers.dev/">
+    <img src="https://img.shields.io/badge/Live%20Demo-View%20Site-blue?style=for-the-badge&logo=cloudflare" alt="Live Demo"/>
+  </a>
   <a href="https://github.com/withastro/astro/releases/tag/astro%406.0.4">
     <img src="https://img.shields.io/static/v1?label=ASTRO&message=6.0.4&color=000&logo=astro" alt="Astro Version 6.0.4"/>
   </a>
