@@ -80,7 +80,58 @@ yarn run dev
 yarn run build
 ```
 
-### 👉 Build and Run With Docker
+## 🚀 Deployment
+
+This project supports multiple deployment options. Choose the one that best fits your needs.
+
+### ☁️ Cloudflare Workers/Pages
+
+Deploy to Cloudflare's global network for optimal performance and low latency.
+
+#### Prerequisites
+
+- [Cloudflare Account](https://dash.cloudflare.com/)
+- [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/install-and-update/)
+
+#### Deploy to Cloudflare Workers
+
+```bash
+# Install Wrangler CLI (if not already installed)
+npm install -g wrangler
+
+# Authenticate with Cloudflare
+wrangler login
+
+# Deploy to production
+yarn deploy:cf-workers
+```
+
+#### Preview Locally with Cloudflare
+
+```bash
+yarn preview:cf-workers
+```
+
+This will start a local development server that mimics the Cloudflare Workers environment.
+
+### 🌐 Netlify
+
+Deploy to Netlify for easy CI/CD and global CDN.
+
+#### Automatic Deployment
+
+1. Connect your GitHub repository to [Netlify](https://netlify.com)
+2. Set the build command: `yarn build`
+3. Set the publish directory: `dist`
+4. Deploy!
+
+````
+
+### 🐳 Docker
+
+Deploy using Docker containers for consistent environments.
+
+#### Build and Run With Docker
 
 ```bash
 docker build -t powerai-astro .
@@ -92,7 +143,7 @@ docker build -t powerai-astro .
 docker run -p 3000:80 powerai-astro
 # or
 # docker run --rm -p 3000:80 powerai-astro
-```
+````
 
 To access the shell within the container:
 
