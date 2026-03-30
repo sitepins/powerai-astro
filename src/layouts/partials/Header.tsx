@@ -19,7 +19,7 @@ export interface IChildNavigationLink {
 export interface IMegaMenuNavigation {
   mega_menu_title: string;
   page_title: string;
-  company_groups: IChildNavigationLink[][];
+  mega_menu_groups: IChildNavigationLink[][];
   page_links: IChildNavigationLink[];
 }
 
@@ -146,7 +146,7 @@ const Header = ({ pathname: initialPathname }: { pathname?: string }) => {
                     onClick={() => toggleSubmenu(menu.name)}
                     className={`nav-link inline-flex items-center w-full xl:pointer-events-none justify-center ${
                       [
-                        ...(menu.mega_menu?.company_groups?.flat() || []),
+                        ...(menu.mega_menu?.mega_menu_groups?.flat() || []),
                         ...(menu.mega_menu?.page_links || []),
                         ...(menu.children || []),
                       ].some(({ url }) => isPathActive(url))
@@ -180,7 +180,7 @@ const Header = ({ pathname: initialPathname }: { pathname?: string }) => {
                               <p className="nav-mega-title nav-mega-company-title">
                                 {menu.mega_menu.mega_menu_title}
                               </p>
-                              {menu.mega_menu.company_groups?.map(
+                              {menu.mega_menu.mega_menu_groups?.map(
                                 (group, groupIndex) => (
                                   <div
                                     className="nav-mega-company-col"
@@ -229,7 +229,7 @@ const Header = ({ pathname: initialPathname }: { pathname?: string }) => {
                                     <p className="nav-mega-title nav-mega-company-title">
                                       {menu.mega_menu.mega_menu_title}
                                     </p>
-                                    {menu.mega_menu.company_groups?.map(
+                                    {menu.mega_menu.mega_menu_groups?.map(
                                       (group, groupIndex) => (
                                         <div
                                           className="nav-mega-company-col"

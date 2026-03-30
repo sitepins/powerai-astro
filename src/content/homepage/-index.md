@@ -5,7 +5,7 @@ banner:
     Powering The Next
     <br/>
     <mark>Generation of Intelligence</mark>
-  content: "Elevate your site’s visibility effortlessly with AI, where smart technology meets user-friendly SEO tools"
+  content: "Elevate your site’s visibility effortlessly with AI, where smart technology meets user-friendly SEO tools."
   badge:
     enable: true
     label: 2M Users Worldwide

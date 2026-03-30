@@ -10,6 +10,8 @@
   <a href="https://powerai-astro.teamosishq.workers.dev/">
     <img src="https://img.shields.io/badge/Live%20Demo-View%20Site-blue?style=for-the-badge&logo=cloudflare" alt="Live Demo"/>
   </a>
+</p>
+<p align=center>
   <a href="https://github.com/withastro/astro/releases/tag/astro%406.0.4">
     <img src="https://img.shields.io/static/v1?label=ASTRO&message=6.0.4&color=000&logo=astro" alt="Astro Version 6.0.4"/>
   </a>
@@ -124,7 +126,7 @@ Deploy to Netlify for easy CI/CD and global CDN.
 #### Automatic Deployment
 
 1. Connect your GitHub repository to [Netlify](https://netlify.com)
-2. Set the build command: `yarn build`
+2. Set the build command: `npm run build`
 3. Set the publish directory: `dist`
 4. Deploy!
 
