@@ -133,7 +133,7 @@ function ContactInfoPanel({ contact_info }: { contact_info: any }) {
             <LocationIcon />
             <span className="text-text text-lg font-medium">Address</span>
           </div>
-          <p className="text-gray text-base leading-6 font-normal w-[233px]">
+          <p className="text-gray text-base leading-6 font-normal w-58.25">
             {contact_info.address}
           </p>
         </div>
@@ -156,7 +156,7 @@ function InputField({
   onChange,
 }: InputFieldProps) {
   return (
-    <div className="relative flex-1 min-w-0 rounded-full bg-white/[0.06] backdrop-blur-[22px] border border-border/6 transition-all focus-within:border-border/20 focus-within:bg-white/[0.09]">
+    <div className="relative flex-1 min-w-0 rounded-full bg-white/6 backdrop-blur-[22px] border border-border/6 transition-all focus-within:border-border/20 focus-within:bg-white/9">
       <input
         type={type}
         value={value}
@@ -258,7 +258,7 @@ function FormPanel() {
             <button
               type="button"
               onClick={() => setAgreed(!agreed)}
-              className="shrink-0 mt-0.5 w-6 h-6 rounded-[6px] border border-border/6 bg-card flex items-center justify-center transition-colors hover:border-border/20"
+              className="shrink-0 mt-0.5 w-6 h-6 rounded-md border border-border/6 bg-card flex items-center justify-center transition-colors hover:border-border/20"
               aria-label="I agree to the terms"
             >
               {agreed && (

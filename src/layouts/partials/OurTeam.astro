@@ -13,7 +13,7 @@ const { badge, title, team_list } = data;
       <div class="container-padding-y container-padding-x">
         <SectionHeader title={title} badge={badge} />
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-2.5">
-          {team_list.map((member: any, index: number) => {
+          {team_list.map((member: any) => {
             const uid = `team-${Math.random().toString(36).slice(2, 8)}`;
             return (
               <div

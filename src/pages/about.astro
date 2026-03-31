@@ -36,7 +36,7 @@ const callToAction = await getListPage("sections/call-to-action.md");
       </CardShape>
       <div class="p-10 grid lg:grid-cols-2 text-left gap-10 sm:gap-20">
         <div>
-          <Badge client:load>{who_we_are?.badge}</Badge>
+          <Badge>{who_we_are?.badge}</Badge>
           <h2 class="sm:text-h1 font-medium" set:html={markdownify(who_we_are?.title || "").__html} />
         </div>
         <div class="text-lg text-gray">
