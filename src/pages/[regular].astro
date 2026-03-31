@@ -1,21 +1,24 @@
 ---
 import Base from "@/layouts/Base.astro";
 import MainContainer from "@/components/MainContainer";
-import MDXContent from "@/helpers/MDXContent";
 import PageHeader from "@/partials/PageHeader";
-import { getSinglePage } from "@/lib/contentParser";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { render } from "astro:content";
 
 export async function getStaticPaths() {
   const pages = await getSinglePage("pages");
   return pages.map((page: any) => ({
-    params: { regular: page.slug },
+    params: { regular: page.id },
     props: { page },
   }));
 }
 
 const { page } = Astro.props;
-const { frontmatter, content } = page;
-const { title, meta_title, description, image, page_header } = frontmatter;
+
+if (page.data.draft) return Astro.redirect("/404");
+
+const { Content } = await render(page);
+const { title, meta_title, description, image, page_header } = page.data;
 ---
 
 <Base title={title} meta_title={meta_title} description={description} image={image}>
@@ -24,7 +27,7 @@ const { title, meta_title, description, image, page_header } = frontmatter;
     <MainContainer>
       <div class="container-padding-x container-padding-y">
         <div class="content">
-          <MDXContent content={content} client:load />
+          <Content />
         </div>
       </div>
     </MainContainer>

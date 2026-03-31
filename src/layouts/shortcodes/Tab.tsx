@@ -1,6 +1,7 @@
+import React from "react";
 
-function Tab({ children }: { children: React.ReactNode }) {
-  return <div className="tab-content-panel">{children}</div>;
+function Tab({ name, children }: { name: string; children: React.ReactNode }) {
+  return <div data-name={name}>{children}</div>;
 }
 
 export default Tab;

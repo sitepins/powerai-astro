@@ -9,6 +9,9 @@ import "@/styles/main.css";
 import { Font } from "astro:assets";
 import { ClientRouter } from "astro:transitions";
 
+const gtmEnabled = config.google_tag_manager?.enable;
+const gtmId = config.google_tag_manager?.gtm_id;
+
 // font families
 const fontEntries = Object.entries(theme.fonts.font_family).filter(
   ([key]) => !key.includes("_type"),
@@ -30,6 +33,16 @@ const { title, meta_title, description, image, noindex, canonical } =
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Google Tag Manager -->
+    {gtmEnabled && (
+      <script is:inline define:vars={{ gtmId }}>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer', gtmId);
+      </script>
+    )}
     <!-- favicon -->
     <link rel="shortcut icon" href={config.site.favicon} />
     <!-- theme meta -->
@@ -135,6 +148,17 @@ const { title, meta_title, description, image, noindex, canonical } =
     <ClientRouter />
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    {gtmEnabled && (
+      <noscript>
+        <iframe
+          src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+          height="0"
+          width="0"
+          style="display:none;visibility:hidden"
+        />
+      </noscript>
+    )}
     <TwSizeIndicator />
     <Header client:load pathname={Astro.url.pathname} transition:persist />
     <main id="main-content" transition:animate="fade">

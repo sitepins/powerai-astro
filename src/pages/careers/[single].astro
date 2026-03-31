@@ -1,24 +1,26 @@
 ---
 import Base from "@/layouts/Base.astro";
 import MainContainer from "@/components/MainContainer";
-import MDXContent from "@/helpers/MDXContent";
 import config from "@/config/config.json";
-import { getSinglePage } from "@/lib/contentParser";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { render } from "astro:content";
 
-const { career_folder: _career_folder } = config.settings;
 const { apply_form_action } = config.params;
 
 export async function getStaticPaths() {
   const careers = await getSinglePage("careers");
   return careers.map((career: any) => ({
-    params: { single: career.slug },
+    params: { single: career.id },
     props: { career },
   }));
 }
 
 const { career } = Astro.props;
-const { frontmatter, content } = career;
-const { title, meta_title, description, job_info } = frontmatter;
+
+if (career.data.draft) return Astro.redirect("/404");
+
+const { Content } = await render(career);
+const { title, meta_title, description, job_info } = career.data;
 
 const jobInfoCards = [
   { icon: "briefcase", label: "Job Type", value: job_info.employ_type },
@@ -95,7 +97,7 @@ const jobInfoCards = [
           </div>
           <div class="flex-1 min-w-0 border-l border-border/6 lg:pl-12">
             <div class="content prose prose-invert max-w-none">
-              <MDXContent content={content} client:load />
+              <Content />
             </div>
           </div>
         </div>
