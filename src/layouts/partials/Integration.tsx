@@ -1,6 +1,6 @@
-import AnimatedButton from "@/components/AnimatedButton";
-import MainContainer from "@/components/MainContainer";
-import SectionHeader from "@/components/SectionHeader";
+
+
+
 import ImageFallback from "@/helpers/ImageFallback";
 import type { Button } from "@/types/index";
 import { motion } from "motion/react";
@@ -42,7 +42,7 @@ const Integration = ({ data }: { data: PageData }) => {
 
   return (
     <section className="overflow-hidden relative">
-      <MainContainer>
+      <div className="main-container"><div className="container">
         <div className="pt-30 pb-10 container-padding-x relative overflow-hidden">
           <motion.div
             initial="hidden"
@@ -50,7 +50,7 @@ const Integration = ({ data }: { data: PageData }) => {
             viewport={{ once: true, margin: "0px", amount: 0.05 }}
             variants={sectionHeaderVariants}
           >
-            <SectionHeader title={title} badge={badge} />
+            <div className="text-center mb-14">{badge && <div className="bg-gradient-primary p-px inline-block rounded-full mb-2"><div className="bg-gradient-black-grid px-4 py-1.5 rounded-full"><span className="gradient-text-primary">{badge}</span></div></div>}<h2 className="text-h2 font-medium lg:w-2/5 mx-auto">{title}</h2></div>
           </motion.div>
 
           <div className="relative h-120 sm:h-[550px] flex justify-center items-end mt-8 overflow-hidden">
@@ -176,17 +176,12 @@ const Integration = ({ data }: { data: PageData }) => {
               className="absolute bottom-10 z-10 flex justify-center w-full"
             >
               {button?.enable && (
-                <AnimatedButton
-                  classNames="btn btn-primary"
-                  href={button?.link || "/"}
-                >
-                  {button?.label}
-                </AnimatedButton>
+                <a href={button?.link || "/"} className="border border-border/30 rounded-full group inline-block"><span className="btn btn-primary py-3.5 mx-1.5 my-1.25 group-hover:m-0 group-hover:py-4.75 group-hover:px-7.5 transition-all duration-300 rounded-full">{button?.label}</span></a>
               )}
             </motion.div>
           </div>
         </div>
-      </MainContainer>
+      </div></div>
       {/* Background Glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2  w-[800px]">
         <svg

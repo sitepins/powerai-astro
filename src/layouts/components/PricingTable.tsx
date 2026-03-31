@@ -1,5 +1,5 @@
 import theme from "@/config/theme.json";
-import MainContainer from "./MainContainer";
+
 import CardShape from "./shape/CardShape";
 
 const svgPaths = {
@@ -148,7 +148,7 @@ export default function PricingTable({ data }: PricingTableProps) {
 
   return (
     <section>
-      <MainContainer>
+      <div className="main-container"><div className="container">
         <div className="container-padding-y container-padding-x">
           <CardShape>
             <div className="flex justify-center">
@@ -310,7 +310,7 @@ export default function PricingTable({ data }: PricingTableProps) {
             </div>
           </CardShape>
         </div>
-      </MainContainer>
+      </div></div>
     </section>
   );
 }

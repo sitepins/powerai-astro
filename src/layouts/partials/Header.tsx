@@ -1,5 +1,5 @@
 
-import Logo from "@/components/Logo";
+
 import config from "@/config/config.json";
 import menu from "@/config/menu.json";
 import React, { useCallback, useEffect, useState } from "react";
@@ -98,7 +98,7 @@ const Header = ({ pathname: initialPathname }: { pathname?: string }) => {
       <nav className="navbar container relative">
         {/* logo */}
         <div className="order-0">
-          <Logo />
+          <a href="/" className="navbar-brand inline-block"><img src={config.site.logo} alt={config.site.title} width={Number(config.site.logo_width) * 2} height={Number(config.site.logo_height) * 2} style={{ height: `${config.site.logo_height}px`, width: `${config.site.logo_width}px` }} /></a>
         </div>
         {/* navbar toggler */}
         <button

@@ -1,7 +1,7 @@
 
 import Accordion from "@/components/Accordion";
-import Badge from "@/components/Badge";
-import MainContainer from "@/components/MainContainer";
+
+
 import { markdownify } from "@/lib/utils/textConverter";
 import type { Button as ButtonType, FAQType } from "@/types/index";
 import { useState } from "react";
@@ -28,12 +28,12 @@ const FAQ = ({ data }: { data: PageData }) => {
   return (
     enable && (
       <section>
-        <MainContainer>
+        <div className="main-container"><div className="container">
           <div className="container-padding-y container-padding-x">
             <div className="grid lg:grid-cols-2 gap-y-12">
               <div className="text-center lg:text-left">
                 <div className="xl:w-4/6">
-                  {badge && <Badge>{badge}</Badge>}
+                  {badge && <div className="bg-gradient-primary p-px inline-block rounded-full mb-2"><div className="bg-gradient-black-grid px-4 py-1.5 rounded-full"><span className="gradient-text-primary">{badge}</span></div></div>}
                   <h2
                     className="text-h1 font-medium"
                     dangerouslySetInnerHTML={markdownify(title)}
@@ -55,7 +55,7 @@ const FAQ = ({ data }: { data: PageData }) => {
               </div>
             </div>
           </div>
-        </MainContainer>
+        </div></div>
       </section>
     )
   );

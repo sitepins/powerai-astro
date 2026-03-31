@@ -1,6 +1,6 @@
 
 import Counter from "./Counter";
-import MainContainer from "./MainContainer";
+
 import theme from "@/config/theme.json";
 import { motion } from "motion/react";
 import {
@@ -31,7 +31,7 @@ const Statistics = ({ data }: { data: PageData }) => {
   return (
     data.frontmatter.enable && (
       <section>
-        <MainContainer>
+        <div className="main-container"><div className="container">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -116,7 +116,7 @@ const Statistics = ({ data }: { data: PageData }) => {
               </motion.div>
             ))}
           </motion.div>
-        </MainContainer>
+        </div></div>
       </section>
     )
   );

@@ -1,8 +1,8 @@
 
 import { useState, useMemo } from "react";
-import SectionHeader from "@/layouts/components/SectionHeader";
-import CareerCard from "@/layouts/components/CareerCard";
-import MainContainer from "@/components/MainContainer";
+
+
+
 import type { Career } from "@/types/index";
 import { AnimatePresence, motion } from "motion/react";
 
@@ -53,11 +53,11 @@ const OpenPositions = ({ badge, title, careers }: OpenPositionsProps) => {
 
   return (
     <section>
-      <MainContainer>
+      <div className="main-container"><div className="container">
         <div className="container-padding-x container-padding-y">
           {/* Section Header */}
           <div className="text-center mb-10">
-            <SectionHeader badge={badge} title={title} />
+            <div className="text-center mb-14">{badge && <div className="bg-gradient-primary p-px inline-block rounded-full mb-2"><div className="bg-gradient-black-grid px-4 py-1.5 rounded-full"><span className="gradient-text-primary">{badge}</span></div></div>}<h2 className="text-h2 font-medium lg:w-2/5 mx-auto">{title}</h2></div>
 
             {/* Category Filters */}
             <motion.div
@@ -129,13 +129,26 @@ const OpenPositions = ({ badge, title, careers }: OpenPositionsProps) => {
                   initial={{ opacity: 0, y: 20, scale: 0.98 }}
                   animate={{ opacity: 1, y: 0, scale: 1, transition: listTransition }}
                 >
-                  <CareerCard data={career} />
+                  <div className={"bg-card/70 border border-border/6 rounded-3xl p-10 flex lg:items-center lg:justify-between gap-8 group hover:bg-card/40 transition-all duration-300 flex-col lg:flex-row"}>
+                    <div className="flex flex-col gap-1 min-w-0 flex-1">
+                      <a href={`/careers/`}><h3 className="font-primary font-medium text-h6 text-text hover:text-primary transition-colors duration-200">{career.frontmatter.title}</h3></a>
+                      <p className="text-gray">{career.frontmatter.job_info?.department}</p>
+                    </div>
+                    <div className="flex items-center gap-3 flex-wrap">
+                      <span className="text-gray">{career.frontmatter.job_info?.employ_type}</span>
+                      <div className="size-1 rounded-full bg-gray/40" />
+                      <span className="text-gray">{career.frontmatter.job_info?.location}</span>
+                      <div className="size-1 rounded-full bg-gray/40" />
+                      <span className="text-gray">{career.frontmatter.job_info?.salary_range}</span>
+                    </div>
+                    <a href={`/careers/`} className="bg-gradient-dark btn btn-dark w-fit">Apply Now</a>
+                  </div>
                 </motion.div>
               ))}
             </motion.div>
           </AnimatePresence>
         </div>
-      </MainContainer>
+      </div></div>
     </section>
   );
 };

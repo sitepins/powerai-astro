@@ -1,4 +1,4 @@
-import MainContainer from "@/components/MainContainer";
+
 import ImageFallback from "@/helpers/ImageFallback";
 import type { TrustedClientType } from "@/types/index";
 import { motion } from "motion/react";
@@ -70,7 +70,7 @@ const TrustedClients = ({ data }: { data: PageData }) => {
 
   return (
     <section>
-      <MainContainer>
+      <div className="main-container"><div className="container">
         <div className="py-20">
           <h2 className="text-h6 text-center mb-10 text-text-light font-medium">
             {data.frontmatter.title}
@@ -94,7 +94,7 @@ const TrustedClients = ({ data }: { data: PageData }) => {
             </motion.div>
           </div>
         </div>
-      </MainContainer>
+      </div></div>
     </section>
   );
 };

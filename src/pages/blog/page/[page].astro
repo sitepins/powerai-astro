@@ -1,14 +1,14 @@
 ---
 import Base from "@/layouts/Base.astro";
-import BlogCard from "@/components/BlogCard";
-import FeaturedPost from "@/components/FeaturedPost";
-import MainContainer from "@/components/MainContainer";
-import Pagination from "@/components/Pagination";
+import BlogCard from "@/components/BlogCard.astro";
+import FeaturedPost from "@/components/FeaturedPost.astro";
+import MainContainer from "@/components/MainContainer.astro";
+import Pagination from "@/components/Pagination.astro";
 import config from "@/config/config.json";
 import { getListPage, getSinglePage } from "@/lib/contentParser";
 import { sortByDate } from "@/lib/utils/sortFunctions";
-import CallToAction from "@/partials/CallToAction";
-import PageHeader from "@/partials/PageHeader";
+import CallToAction from "@/partials/CallToAction.astro";
+import PageHeader from "@/partials/PageHeader.astro";
 
 const { blog_folder, pagination } = config.settings;
 
@@ -58,5 +58,5 @@ const featuredPost = sortedPosts.filter((post: any) => post.frontmatter.featured
       </div>
     </MainContainer>
   </section>
-  <CallToAction data={callToAction} client:visible />
+  <CallToAction data={callToAction}/>
 </Base>

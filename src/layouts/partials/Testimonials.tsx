@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-import MainContainer from "@/components/MainContainer";
+
 import ImageFallback from "@/helpers/ImageFallback";
 import { markdownify } from "@/lib/utils/textConverter";
 import { AnimatePresence, motion } from "motion/react";
@@ -98,7 +98,7 @@ const Testimonials = ({ data }: { data: PageData }) => {
     <>
       {data.frontmatter.enable && (
         <section className="overflow-hidden">
-          <MainContainer>
+          <div className="main-container"><div className="container">
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -211,7 +211,7 @@ const Testimonials = ({ data }: { data: PageData }) => {
                 </div>
               </div>
             </motion.div>
-          </MainContainer>
+          </div></div>
         </section>
       )}
     </>

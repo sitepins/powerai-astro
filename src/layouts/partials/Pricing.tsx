@@ -1,6 +1,6 @@
-import MainContainer from "@/components/MainContainer";
-import PricingCard from "@/components/PricingCard";
-import SectionHeader from "@/components/SectionHeader";
+
+
+
 import type { PricingType } from "@/types/index";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
@@ -118,9 +118,9 @@ const Pricing = ({
     enable && (
       <section className="text-left">
         {isHome ? (
-          <MainContainer>
+          <div className="main-container"><div className="container">
             <div className="container-padding-y container-padding-x">
-              <SectionHeader title={title} badge={badge} />
+              <div className="text-center mb-14">{badge && <div className="bg-gradient-primary p-px inline-block rounded-full mb-2"><div className="bg-gradient-black-grid px-4 py-1.5 rounded-full"><span className="gradient-text-primary">{badge}</span></div></div>}<h2 className="text-h2 font-medium lg:w-2/5 mx-auto">{title}</h2></div>
 
               <div className="flex flex-col gap-y-14">
                 <motion.div
@@ -177,13 +177,13 @@ const Pricing = ({
                 >
                   {pricing_plans.map((plan, index) => (
                     <motion.div key={index} variants={staggerItemVariants}>
-                      <PricingCard plan={plan} />
+                      <div className="bg-card/70 border border-border/6 rounded-3xl p-2.5"><div className="bg-card border border-border/6 rounded-3xl p-7.5"><h3 className="text-h5 font-medium mb-2">{plan.name}</h3><p className="text-gray mb-6">{(plan as any).description}</p><div className="mb-6"><span className="text-text-light">{plan.price?.monthly?.prefix}</span><span className="text-[48px] font-light">{plan.price?.monthly?.number}</span><span className="text-text-light">{plan.price?.monthly?.suffix}</span></div>{plan.button?.enable && <a href={plan.button.link} className="btn btn-primary w-full text-center mb-8">{plan.button.label}</a>}{(plan as any).services && <ul className="flex flex-col gap-3">{(plan as any).services.map((service: string, si: number) => (<li key={si} className="flex items-center gap-3 text-gray">{service}</li>))}</ul>}</div></div>
                     </motion.div>
                   ))}
                 </motion.div>
               </div>
             </div>
-          </MainContainer>
+          </div></div>
         ) : (
           <div className="flex flex-col gap-y-14">
             <motion.div
@@ -238,7 +238,7 @@ const Pricing = ({
             >
               {pricing_plans.map((plan, index) => (
                 <motion.div key={index} variants={staggerItemVariants}>
-                  <PricingCard plan={plan} />
+                  <div className="bg-card/70 border border-border/6 rounded-3xl p-2.5"><div className="bg-card border border-border/6 rounded-3xl p-7.5"><h3 className="text-h5 font-medium mb-2">{plan.name}</h3><p className="text-gray mb-6">{(plan as any).description}</p><div className="mb-6"><span className="text-text-light">{plan.price?.monthly?.prefix}</span><span className="text-[48px] font-light">{plan.price?.monthly?.number}</span><span className="text-text-light">{plan.price?.monthly?.suffix}</span></div>{plan.button?.enable && <a href={plan.button.link} className="btn btn-primary w-full text-center mb-8">{plan.button.label}</a>}{(plan as any).services && <ul className="flex flex-col gap-3">{(plan as any).services.map((service: string, si: number) => (<li key={si} className="flex items-center gap-3 text-gray">{service}</li>))}</ul>}</div></div>
                 </motion.div>
               ))}
             </motion.div>

@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { FiSearch } from "react-icons/fi";
-import MainContainer from "./MainContainer";
+
 import type { IntegrationType } from "@/types/index";
 import ImageFallback from "@/helpers/ImageFallback";
 
@@ -33,7 +33,7 @@ const IntegrationList = ({
 
   return (
     <section>
-      <MainContainer>
+      <div className="main-container"><div className="container">
         <div className="container-padding-y container-padding-x">
           {/* Search Box and Filter */}
           <div className="flex justify-between items-center mb-12 flex-col sm:flex-row gap-y-5">
@@ -114,7 +114,7 @@ const IntegrationList = ({
             </div>
           )}
         </div>
-      </MainContainer>
+      </div></div>
     </section>
   );
 };
