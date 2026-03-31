@@ -8,6 +8,7 @@ import { getListPage } from "@/lib/contentParser";
 
 const data = await getListPage("contact/-index.md");
 const { title, description, meta_title, image, page_header, contact_info } = data.frontmatter;
+if (data.frontmatter.draft) return Astro.redirect("/404");
 const faq = await getListPage("sections/faq.md");
 const callToAction = await getListPage("sections/call-to-action.md");
 ---

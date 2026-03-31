@@ -14,6 +14,7 @@ const { career_folder } = config.settings;
 
 const data = await getListPage("careers/-index.md");
 const { title, description, meta_title, image, page_header, gallery } = data.frontmatter;
+if ((data).frontmatter.draft) return Astro.redirect("/404");
 const faq = await getListPage("sections/faq.md");
 const our_value = await getListPage("sections/our-value.md");
 const callToAction = await getListPage("sections/call-to-action.md");

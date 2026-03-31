@@ -8,6 +8,7 @@ import { getListPage, getSinglePage } from "@/lib/contentParser";
 
 const integrationIndex = await getListPage("integrations/-index.md");
 const { title, description, meta_title, image, page_header } = integrationIndex.frontmatter;
+if ((integrationIndex).frontmatter.draft) return Astro.redirect("/404");
 const integrations_list = await getSinglePage("integrations");
 const faq = await getListPage("sections/faq.md");
 const callToAction = await getListPage("sections/call-to-action.md");

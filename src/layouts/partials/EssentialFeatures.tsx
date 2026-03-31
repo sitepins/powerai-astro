@@ -1,6 +1,5 @@
 import MainContainer from "@/components/MainContainer";
 import SectionHeader from "@/components/SectionHeader";
-import ImageFallback from "@/helpers/ImageFallback";
 import { motion } from "motion/react";
 import {
   staggerContainerVariants,
@@ -96,7 +95,7 @@ const EssentialFeatures = ({ data }: { data: PageData }) => {
                     </defs>
                   </svg>
 
-                  <ImageFallback
+                  <img
                     src={feature.image}
                     alt={feature.title}
                     width={570}

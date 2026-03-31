@@ -1,5 +1,4 @@
 
-import ImageFallback from "@/helpers/ImageFallback";
 import React from "react";
 import { motion } from "motion/react";
 import { scaleInVariants } from "@/lib/animations";
@@ -13,7 +12,7 @@ const IconBox = ({ icon }: { icon: string }) => {
       variants={scaleInVariants}
       className="border border-border/6 bg-gradient-dark size-22.5 rounded-4xl flex items-center justify-center mb-7"
     >
-      <ImageFallback src={icon} alt="Icon" width={44} height={44} />
+      <img src={icon} alt="Icon" width={44} height={44} />
     </motion.div>
   );
 };

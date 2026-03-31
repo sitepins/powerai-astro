@@ -1,6 +1,5 @@
 
 import type { CaseStudy } from "@/types/index";
-import ImageFallback from "@/helpers/ImageFallback";
 import { motion } from "motion/react";
 import { cardVariants } from "@/lib/animations";
 
@@ -22,7 +21,7 @@ const CaseStudyCard = ({ data }: { data: CaseStudy }) => {
         <a href={`/case-studies/${data.slug}`}>
           <div className="rounded-3xl overflow-hidden bg-dark/10 w-full aspect-1150/600 relative">
             {image ? (
-              <ImageFallback
+              <img
                 src={image}
                 alt={title}
                 width={1150}

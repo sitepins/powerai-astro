@@ -2,7 +2,6 @@
 import Badge from "@/components/Badge";
 
 import MainContainer from "@/components/MainContainer";
-import ImageFallback from "@/helpers/ImageFallback";
 import CardShape from "@/components/shape/CardShape";
 import { motion } from "motion/react";
 import {
@@ -169,7 +168,7 @@ const KeyFeatures = ({ data }: { data: PageData }) => {
                     </ul>
                   </div>
                   <CardShape>
-                    <ImageFallback
+                    <img
                       src={feature.image}
                       alt="Feature"
                       width={570}

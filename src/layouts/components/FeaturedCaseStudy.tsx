@@ -1,6 +1,5 @@
 
 import type { CaseStudy } from "@/types/index";
-import ImageFallback from "@/helpers/ImageFallback";
 import { plainify } from "@/lib/utils/textConverter";
 import { useState } from "react";
 import { motion } from "motion/react";
@@ -39,7 +38,7 @@ const FeaturedCaseStudy = ({
           <div className="block">
             <div className="rounded-3xl overflow-hidden bg-dark/10 w-full aspect-1150/600 relative">
               {image ? (
-                <ImageFallback
+                <img
                   src={image}
                   alt={title}
                   width={1150}
@@ -64,7 +63,7 @@ const FeaturedCaseStudy = ({
 
               {logo && (
                 <div className="absolute left-4 sm:left-6 top-4 sm:top-6 z-5">
-                  <ImageFallback
+                  <img
                     src={logo}
                     alt={`${title} logo`}
                     width={280}
@@ -91,7 +90,7 @@ const FeaturedCaseStudy = ({
           <a href={caseStudyPath} className="block">
             <div className="rounded-3xl overflow-hidden bg-dark/10 w-full aspect-1150/600 relative">
               {image ? (
-                <ImageFallback
+                <img
                   src={image}
                   alt={title}
                   width={1150}
@@ -116,7 +115,7 @@ const FeaturedCaseStudy = ({
 
               {logo && (
                 <div className="absolute left-4 sm:left-6 top-4 sm:top-6 z-5">
-                  <ImageFallback
+                  <img
                     src={logo}
                     alt={`${title} logo`}
                     width={280}

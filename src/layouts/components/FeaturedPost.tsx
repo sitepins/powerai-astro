@@ -1,6 +1,5 @@
 
 import type { Post } from "@/types/index";
-import ImageFallback from "@/helpers/ImageFallback";
 import dateFormat from "@/lib/utils/dateFormat";
 import { motion } from "motion/react";
 import { cardVariants } from "@/lib/animations";
@@ -115,7 +114,7 @@ function HeroImage({ image, title }: HeroImageProps) {
   return (
     <div className="rounded-3xl overflow-hidden bg-dark/10 w-full aspect-1150/600 relative">
       {image ? (
-        <ImageFallback
+        <img
           src={image}
           alt={title}
           width={1150}
@@ -166,7 +165,7 @@ function AuthorRow({ author, date }: AuthorRowProps) {
       <div className="flex items-center gap-3">
         {author?.avatar && (
           <div className="shrink-0 size-10 sm:size-12 rounded-full overflow-hidden">
-            <ImageFallback
+            <img
               src={author.avatar}
               alt={author.name}
               width={48}

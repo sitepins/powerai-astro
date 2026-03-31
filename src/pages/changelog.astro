@@ -9,6 +9,7 @@ import { getListPage } from "@/lib/contentParser";
 
 const data = await getListPage("changelog/-index.md");
 const { title, description, meta_title, image, page_header, changelog_list } = data.frontmatter;
+if (data.frontmatter.draft) return Astro.redirect("/404");
 const callToAction = await getListPage("sections/call-to-action.md");
 const primaryColor = theme?.colors?.default?.theme_color?.primary || "#8F2FFE";
 ---

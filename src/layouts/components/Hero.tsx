@@ -1,7 +1,6 @@
 
 import type { Button } from "@/types/index";
 import MainContainer from "./MainContainer";
-import ImageFallback from "@/helpers/ImageFallback";
 import { markdownify } from "@/lib/utils/textConverter";
 import AnimatedButton from "./AnimatedButton";
 import HeroShape from "./shape/HeroShape";
@@ -51,7 +50,7 @@ const Hero = ({
                       key={index}
                       className="border border-secondary rounded-full -mr-2 last:mr-0 size-6"
                     >
-                      <ImageFallback
+                      <img
                         src={src}
                         alt="avatar"
                         width={100}
@@ -112,7 +111,7 @@ const Hero = ({
             variants={heroImageVariants}
             className="mt-30 bg-dark/45 backdrop-blur-2xl p-5 relative z-1"
           >
-            <ImageFallback
+            <img
               src={data.image}
               alt="banner"
               width={1250}

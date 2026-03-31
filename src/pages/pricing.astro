@@ -10,6 +10,7 @@ import { getListPage } from "@/lib/contentParser";
 
 const data = await getListPage("pricing/-index.md");
 const { title, description, meta_title, image, page_header, pricing_table } = data.frontmatter;
+if (data.frontmatter.draft) return Astro.redirect("/404");
 const trusted_clients = await getListPage("sections/trusted-clients.md");
 const pricing = await getListPage("sections/pricing.md");
 const faq = await getListPage("sections/faq.md");

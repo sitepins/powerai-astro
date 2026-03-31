@@ -1,7 +1,6 @@
 
 import { useEffect, useState } from "react";
 import MainContainer from "@/components/MainContainer";
-import ImageFallback from "@/helpers/ImageFallback";
 import { markdownify } from "@/lib/utils/textConverter";
 import { AnimatePresence, motion } from "motion/react";
 import { fadeInUpVariants } from "@/lib/animations";
@@ -123,7 +122,7 @@ const Testimonials = ({ data }: { data: PageData }) => {
                       transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
                       className="bg-primary-dark rounded-2xl border border-border/6 h-full flex items-start justify-center"
                     >
-                      <ImageFallback
+                      <img
                         src={activeTestimonial.avatar}
                         alt={activeTestimonial.name}
                         width={570}
@@ -174,7 +173,7 @@ const Testimonials = ({ data }: { data: PageData }) => {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <ImageFallback
+                          <img
                             src={activeTestimonial.company.logo}
                             alt={
                               activeTestimonial.company?.name || "Company Logo"

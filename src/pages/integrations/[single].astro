@@ -1,21 +1,25 @@
 ---
 import Base from "@/layouts/Base.astro";
 import MainContainer from "@/components/MainContainer";
-import MDXContent from "@/helpers/MDXContent";
 import PageHeader from "@/partials/PageHeader";
-import { getSinglePage } from "@/lib/contentParser";
+import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
-  const integrations = await getSinglePage("integrations");
-  return integrations.map((integration: any) => ({
-    params: { single: integration.slug },
+  const integrations = await getCollection("integrations", ({ data, id }) => !data?.draft && !id.startsWith("-"));
+  return integrations.map((integration) => ({
+    params: { single: integration.id },
     props: { integration },
   }));
 }
 
 const { integration } = Astro.props;
-const { frontmatter, content } = integration;
-const { title, meta_title, description, image, page_header } = frontmatter;
+
+// Draft redirect
+if ((integration.data as any).draft) return Astro.redirect("/404");
+
+const { Content } = await render(integration);
+
+const { title, meta_title, description, image, page_header } = integration.data as any;
 ---
 
 <Base title={title} meta_title={meta_title} description={description} image={image}>
@@ -24,7 +28,7 @@ const { title, meta_title, description, image, page_header } = frontmatter;
     <MainContainer>
       <div class="lg:w-4/5 mx-auto container-padding-y container-padding-x">
         <div class="content">
-          <MDXContent content={content} client:load />
+          <Content />
         </div>
       </div>
     </MainContainer>

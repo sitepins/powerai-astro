@@ -1,6 +1,5 @@
 
 import MainContainer from "@/components/MainContainer";
-import ImageFallback from "@/helpers/ImageFallback";
 import SectionHeader from "@/components/SectionHeader";
 import { motion } from "motion/react";
 import {
@@ -43,7 +42,7 @@ const OurTeam = ({ data }: { data: OurTeamData }) => {
                 className="bg-card/70 flex flex-col gap-5 items-start pb-5 pt-2.5 px-2.5 relative rounded-3xl w-full border border-border/6 group"
               >
                 {/* Image Card */}
-                <ImageFallback
+                <img
                   src={member.image}
                   alt={member.name}
                   width={300}

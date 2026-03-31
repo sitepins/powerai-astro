@@ -1,7 +1,6 @@
 
 import Badge from "@/components/Badge";
 import MainContainer from "@/components/MainContainer";
-import ImageFallback from "@/helpers/ImageFallback";
 import type { GalleryType } from "@/types/index";
 import { motion } from "motion/react";
 import {
@@ -47,7 +46,7 @@ const Gallery = ({ data }: { data: GalleryType }) => {
                   variants={staggerItemVariants}
                   className={`${index % 2 === 0 ? "md:row-span-2" : "md:row-span-3 "} ${index === 4 ? "lg:row-span-3!" : ""}`}
                 >
-                  <ImageFallback
+                  <img
                     src={image}
                     alt={`Gallery image ${index + 1}`}
                     width={400}

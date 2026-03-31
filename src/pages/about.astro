@@ -15,6 +15,7 @@ import { getListPage } from "@/lib/contentParser";
 
 const data = await getListPage("about/-index.md");
 const { title, description, meta_title, image, page_header, who_we_are, what_our_goals, our_team } = data.frontmatter;
+if (data.frontmatter.draft) return Astro.redirect("/404");
 const trusted_clients = await getListPage("sections/trusted-clients.md");
 const whyChooseUs = await getListPage("sections/why-choose-us.md");
 const statistics = await getListPage("sections/statistics.md");

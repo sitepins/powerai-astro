@@ -1,6 +1,5 @@
 
 import MainContainer from "@/components/MainContainer";
-import ImageFallback from "@/helpers/ImageFallback";
 import SectionHeader from "@/components/SectionHeader";
 import { markdownify } from "@/lib/utils/textConverter";
 import { motion } from "motion/react";
@@ -43,7 +42,7 @@ const WhatOurGoals = ({ data }: { data: GoalData }) => {
               variants={fadeInLeftVariants}
               className="border border-border/6 bg-card rounded-3xl p-2.5 h-full"
             >
-              <ImageFallback
+              <img
                 src={image}
                 height={600}
                 width={800}
@@ -69,7 +68,7 @@ const WhatOurGoals = ({ data }: { data: GoalData }) => {
                   className="border border-border/6 bg-card/70 rounded-3xl p-10 hover:border-primary/20 transition-colors duration-300"
                 >
                   <div className="border border-border/6 bg-gradient-dark size-14 rounded-xl flex items-center justify-center mb-6">
-                    <ImageFallback
+                    <img
                       src={mission.icon}
                       alt="Icon"
                       width={24}
@@ -92,7 +91,7 @@ const WhatOurGoals = ({ data }: { data: GoalData }) => {
                   className="border border-border/6 bg-card/70 rounded-3xl p-10 hover:border-primary/20 transition-colors duration-300"
                 >
                   <div className="border border-border/6 bg-gradient-dark size-14 rounded-xl flex items-center justify-center mb-6">
-                    <ImageFallback
+                    <img
                       src={vision.icon}
                       alt="Icon"
                       width={24}

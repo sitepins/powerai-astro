@@ -1,5 +1,4 @@
 import MainContainer from "@/components/MainContainer";
-import ImageFallback from "@/helpers/ImageFallback";
 import type { TrustedClientType } from "@/types/index";
 import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
@@ -55,7 +54,7 @@ const TrustedClients = ({ data }: { data: PageData }) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <ImageFallback
+            <img
               src={logo?.logo}
               alt={`Partner logo ${index + 1}`}
               className="w-45 grayscale opacity-70 transition-all duration-300 hover:opacity-100 hover:grayscale-0"

@@ -1,7 +1,6 @@
 import AnimatedButton from "@/components/AnimatedButton";
 import MainContainer from "@/components/MainContainer";
 import SectionHeader from "@/components/SectionHeader";
-import ImageFallback from "@/helpers/ImageFallback";
 import type { Button } from "@/types/index";
 import { motion } from "motion/react";
 import { useState } from "react";
@@ -115,7 +114,7 @@ const Integration = ({ data }: { data: PageData }) => {
                               : ""
                           }
                         >
-                          <ImageFallback
+                          <img
                             src={item}
                             alt={`Integration ${index + 1}`}
                             width={40}

@@ -3,7 +3,6 @@ import { useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import MainContainer from "./MainContainer";
 import type { IntegrationType } from "@/types/index";
-import ImageFallback from "@/helpers/ImageFallback";
 
 const IntegrationList = ({
   integration_list,
@@ -86,7 +85,7 @@ const IntegrationList = ({
                   {/* Content wrapper to stay above gradient overlay */}
                   <div className="relative z-10 flex flex-col items-center justify-center">
                     <div className="mb-7 flex h-10 w-10 items-center justify-center">
-                      <ImageFallback
+                      <img
                         src={integration.frontmatter.icon}
                         alt={integration.frontmatter.title}
                         width={40}

@@ -1,6 +1,5 @@
 
 import type { Post } from "@/types/index";
-import ImageFallback from "@/helpers/ImageFallback";
 import dateFormat from "@/lib/utils/dateFormat";
 import { plainify } from "@/lib/utils/textConverter";
 import { motion } from "motion/react";
@@ -24,7 +23,7 @@ const BlogCard = ({ data }: { data: Post }) => {
         <a href={`/blog/${data.slug}`}>
           <div className="rounded-3xl overflow-hidden bg-dark/10 w-full aspect-1150/600 relative">
             {image ? (
-              <ImageFallback
+              <img
                 src={image}
                 alt={title}
                 width={1150}
@@ -56,7 +55,7 @@ const BlogCard = ({ data }: { data: Post }) => {
           <div className="flex items-center gap-2.5">
             {author?.avatar && (
               <div className="shrink-0 size-8 rounded-full overflow-hidden border border-border/6">
-                <ImageFallback
+                <img
                   src={author.avatar}
                   alt={author.name}
                   width={32}
