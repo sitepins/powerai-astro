@@ -3,9 +3,8 @@
 import config from "@/config/config.json";
 import menu from "@/config/menu.json";
 import React, { useCallback, useEffect, useState } from "react";
-import { type IconType } from "react-icons";
-import { HiOutlineBriefcase } from "react-icons/hi2";
 import { motion, AnimatePresence } from "motion/react";
+import DynamicIcon from "@/layouts/helpers/DynamicIcon";
 import { fadeInDownVariants } from "@/lib/animations";
 
 //  child navigation link interface
@@ -32,10 +31,6 @@ export interface INavigationLink {
   mega_menu?: IMegaMenuNavigation;
 }
 
-const menuIconMap: Record<string, IconType> = {
-  HiOutlineBriefcase,
-};
-
 const normalizePath = (path: string) => {
   if (path === "/") return "/";
   return path.endsWith("/") ? path.slice(0, -1) : path;
@@ -53,9 +48,6 @@ const Header = ({ pathname: initialPathname }: { pathname?: string }) => {
     if (!url) return false;
     return normalizePath(url) === normalizedPathname;
   };
-
-  const getMenuIcon = (iconName?: string) =>
-    menuIconMap[iconName || ""] || HiOutlineBriefcase;
 
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -186,9 +178,7 @@ const Header = ({ pathname: initialPathname }: { pathname?: string }) => {
                                     className="nav-mega-company-col"
                                     key={`company-group-${groupIndex}`}
                                   >
-                                    {group.map((item, itemIndex) => {
-                                      const Icon = getMenuIcon(item.icon);
-                                      return (
+                                    {group.map((item, itemIndex) => (
                                         <a
                                           href={item.url}
                                           onClick={closeMenu}
@@ -196,15 +186,14 @@ const Header = ({ pathname: initialPathname }: { pathname?: string }) => {
                                           className={`nav-mega-link ${isPathActive(item.url) ? "active" : ""}`}
                                         >
                                           <span className="nav-mega-icon-wrap">
-                                            <Icon className="nav-mega-icon" />
+                                            {item.icon && <DynamicIcon icon={item.icon} className="nav-mega-icon" />}
                                           </span>
                                           <span className="nav-mega-content">
                                             <span className="nav-mega-name">{item.name}</span>
                                             <span className="nav-mega-description">{item.description}</span>
                                           </span>
                                         </a>
-                                      );
-                                    })}
+                                    ))}
                                   </div>
                                 ),
                               )}
@@ -235,24 +224,21 @@ const Header = ({ pathname: initialPathname }: { pathname?: string }) => {
                                           className="nav-mega-company-col"
                                           key={`company-group-${groupIndex}`}
                                         >
-                                          {group.map((item, itemIndex) => {
-                                            const Icon = getMenuIcon(item.icon);
-                                            return (
+                                          {group.map((item, itemIndex) => (
                                               <a
                                                 href={item.url}
                                                 key={`company-item-${groupIndex}-${itemIndex}`}
                                                 className={`nav-mega-link ${isPathActive(item.url) ? "active" : ""}`}
                                               >
                                                 <span className="nav-mega-icon-wrap">
-                                                  <Icon className="nav-mega-icon" />
+                                                  {item.icon && <DynamicIcon icon={item.icon} className="nav-mega-icon" />}
                                                 </span>
                                                 <span className="nav-mega-content">
                                                   <span className="nav-mega-name">{item.name}</span>
                                                   <span className="nav-mega-description">{item.description}</span>
                                                 </span>
                                               </a>
-                                            );
-                                          })}
+                                          ))}
                                         </div>
                                       ),
                                     )}
@@ -263,20 +249,17 @@ const Header = ({ pathname: initialPathname }: { pathname?: string }) => {
                                     {menu.mega_menu.page_title}
                                   </p>
                                   <div className="nav-mega-legal-list">
-                                    {menu.mega_menu.page_links?.map((item, index) => {
-                                      const Icon = getMenuIcon(item.icon);
-                                      return (
+                                    {menu.mega_menu.page_links?.map((item, index) => (
                                         <a
                                           href={item.url}
                                           onClick={closeMenu}
                                           key={`legal-link-${index}`}
                                           className={`nav-mega-legal-link ${isPathActive(item.url) ? "active" : ""}`}
                                         >
-                                          <Icon className="nav-mega-legal-icon" />
+                                          {item.icon && <DynamicIcon icon={item.icon} className="nav-mega-legal-icon" />}
                                           <span>{item.name}</span>
                                         </a>
-                                      );
-                                    })}
+                                    ))}
                                   </div>
                                 </div>
                               </div>

@@ -25,19 +25,19 @@
               "name": "Pricing",
               "url": "/pricing",
               "description": "View our pricing plans",
-              "icon": "HiOutlineBriefcase"
+              "icon": "HiOutlineTag"
             },
             {
               "name": "Changelog",
               "url": "/changelog",
               "description": "Latest updates and fixes",
-              "icon": "HiOutlineBriefcase"
+              "icon": "HiOutlineNewspaper"
             },
             {
               "name": "Integrations",
               "url": "/integrations",
               "description": "Connect your favorite tools",
-              "icon": "HiOutlineBriefcase"
+              "icon": "HiOutlineCog"
             }
           ],
           [
@@ -45,19 +45,19 @@
               "name": "Blog",
               "url": "/blog",
               "description": "Read our latest articles",
-              "icon": "HiOutlineBriefcase"
+              "icon": "HiOutlinePencil"
             },
             {
               "name": "Case Study",
               "url": "/case-studies",
               "description": "See success stories",
-              "icon": "HiOutlineBriefcase"
+              "icon": "HiOutlineChartBar"
             },
             {
               "name": "Careers",
               "url": "/careers",
               "description": "Join our growing team",
-              "icon": "HiOutlineBriefcase"
+              "icon": "HiOutlineUserGroup"
             }
           ]
         ],
@@ -66,32 +66,32 @@
           {
             "name": "Contact Us",
             "url": "/contact",
-            "icon": "HiOutlineBriefcase"
+            "icon": ""
           },
           {
             "name": "Privacy Policy",
             "url": "/privacy-policy",
-            "icon": "HiOutlineBriefcase"
+            "icon": ""
           },
           {
             "name": "Terms & Conditions",
             "url": "/terms-of-service",
-            "icon": "HiOutlineBriefcase"
+            "icon": ""
           },
           {
             "name": "Changelog",
             "url": "/changelog",
-            "icon": "HiOutlineBriefcase"
+            "icon": ""
           },
           {
             "name": "Elements",
             "url": "/elements",
-            "icon": "HiOutlineBriefcase"
+            "icon": ""
           },
           {
             "name": "404",
             "url": "/404",
-            "icon": "HiOutlineBriefcase"
+            "icon": ""
           }
         ]
       }
